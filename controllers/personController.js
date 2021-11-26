@@ -2,8 +2,7 @@ const Person = require('../models/personModel')
 
 const { getPostData } = require('../utils')
 
-// @desc    Gets All people
-// @route   GET /api/people
+
 async function getAllPerson(req, res) {
     try {
         const people = await Person.findAll()
@@ -15,8 +14,7 @@ async function getAllPerson(req, res) {
     }
 }
 
-// @desc    Gets Single person
-// @route   GET /api/person/:id
+
 async function getPerson(req, res, id) {
     try {
         const person = await Person.findById(id)
@@ -33,8 +31,6 @@ async function getPerson(req, res, id) {
     }
 }
 
-// @desc    Create a person
-// @route   POST /api/people
 async function createPerson(req, res) {
     try {
         const body = await getPostData(req)
@@ -51,6 +47,7 @@ async function createPerson(req, res) {
         const newPerson = await Person.create(person)
 
         res.writeHead(201, { 'Content-Type': 'application/json' })
+        console.log();
         return res.end(JSON.stringify(newPerson))  
 
     } catch (error) {
@@ -58,8 +55,7 @@ async function createPerson(req, res) {
     }
 }
 
-// @desc    Update a person
-// @route   PUT /api/people/:id
+
 async function updatePerson(req, res, id) {
     try {
         const person = await Person.findById(id)
@@ -91,8 +87,7 @@ async function updatePerson(req, res, id) {
     }
 }
 
-// @desc    Delete Person
-// @route   DELETE /api/Person/:id
+
 async function deletePerson(req, res, id) {
     try {
         const person = await Person.findById(id)
