@@ -1,8 +1,7 @@
 const people = require('./data/people')
 
 function writeDataToFile(content) {
-    console.log(content);
-    people.push(content);
+      people.push(content);
  }
 
 function getPostData(req) {

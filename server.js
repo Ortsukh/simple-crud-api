@@ -1,6 +1,10 @@
-const http = require('http')
+const http = require('http');
+const dotenv = require('dotenv');
+const path = require('path');
 const { getAllPerson, getPerson, createPerson, updatePerson, deletePerson } = require('./controllers/PersonController')
-
+dotenv.config({
+    path: path.join(__dirname, './.env')
+  });
 const server = http.createServer((req, res) => {
     if(req.url === '\/person' && req.method === 'GET') {
         getAllPerson(req, res)
@@ -20,7 +24,6 @@ const server = http.createServer((req, res) => {
         res.end(JSON.stringify({ message: 'Route Not Found' }))
     }
 })
-
 const PORT =  process.env.PORT || 5000
 
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`))

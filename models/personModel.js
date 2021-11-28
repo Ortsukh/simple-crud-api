@@ -37,9 +37,9 @@ function update(id, person) {
 function remove(id) {
     return new Promise((resolve, reject) => {
         people = people.filter((p) => p.id !== id)
-        if (process.env.NODE_ENV !== 'test') {
-            writeDataToFile('./data/people.json', people);
-        }
+        
+        // writeDataToFile( people);
+        
         resolve()
     })
 }
