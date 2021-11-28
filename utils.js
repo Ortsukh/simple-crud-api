@@ -1,28 +1,28 @@
-const people = require('./data/people')
+const people = require("./data/people");
 
 function writeDataToFile(content) {
-      people.push(content);
- }
+  people.push(content);
+}
 
 function getPostData(req) {
-    return new Promise((resolve, reject) => {
-        try {
-            let body = ''
+  return new Promise((resolve, reject) => {
+    try {
+      let body = "";
 
-            req.on('data', (chunk) => {
-                body += chunk.toString()
-            })
+      req.on("data", (chunk) => {
+        body += chunk.toString();
+      });
 
-            req.on('end', () => {
-                resolve(body)
-            })
-        } catch (error) {
-            reject(err)
-        }
-    })
+      req.on("end", () => {
+        resolve(body);
+      });
+    } catch (error) {
+      reject(err);
+    }
+  });
 }
 
 module.exports = {
-    writeDataToFile,
-    getPostData
-}
+  writeDataToFile,
+  getPostData,
+};
