@@ -20,12 +20,12 @@
 8. There could be some tests for API.
 
 examples:
--1.body {
+ -1.body {
    *name: "Ivan",
   *description: "student",
   *age: 20,
   *hobbies: ["reading", "sport"],  
 }
--2. for start dev write: npm run start:dev
--3. for start prod write: npm run start:prod
--4. for test write: npm run test
+ -2. for start dev write: npm run start:dev
+ -3. for start prod write: npm run start:prod
+ -4. for test write: npm run test
